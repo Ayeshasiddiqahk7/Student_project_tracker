@@ -1,0 +1,13 @@
+<h1>{{ project.title }}</h1>
+<p><strong>Description:</strong> {{ project.description }}</p>
+<p><strong>Status:</strong> {{ project.get_status_display }}</p>
+<p><strong>Start Date:</strong> {{ project.start_date }}</p>
+<p><strong>End Date:</strong> {{ project.end_date }}</p>
+<h3>Team Members:</h3>
+<ul>
+  {% for student in project.students.all %}
+    <li>{{ student.name }} ({{ student.enrollment_number }})</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'project_list' %}">Back to Projects</a>
+
